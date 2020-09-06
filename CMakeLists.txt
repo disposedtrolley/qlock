@@ -55,7 +55,8 @@ add_custom_target(libopencm3 make WORKING_DIRECTORY ${OPENCM3_DIR})
 add_subdirectory(${LIBEPD_DIR})
 
 # SRC
-file(GLOB USER_SOURCES ./src/*.cpp)
+set(USER_SOURCES
+        ${CMAKE_SOURCE_DIR}/src/main.cpp src/managers.cpp src/managers.h)
 add_executable(${PROJECT_NAME}.elf ${USER_SOURCES})
 target_link_libraries(
         ${PROJECT_NAME}.elf
